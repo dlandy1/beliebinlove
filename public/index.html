@@ -4,25 +4,33 @@
   <title>Belieb in Love</title>
   <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
+  <link rel="stylesheet" href="css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/biebs.css">
   <script src="js/jquery.cookie.js"></script>
+  <script src="js/bootstrap.js" type="text/javascript"></script>
   <script src="js/biebs.js" type="text/javascript"></script>
-
 </head>
 <body>
 
+  <div class="container">
 
-  <input type="text" name="fname" class="date" placeholder="Name"><br>
-  <input type="text" name="fname" class="dater" placeholder="Name"><br>
-  <input type="submit" value="Submit" class="submit">
+  <div class="video">
+    <input class="form-control date" id="focusedInput" type="text" placeholder="1st Acompanier Name"><br>
+    <input class="form-control dater" id="focusedInput" type="text" placeholder="2nd Acompanier Name"><br>
+    <input type="submit" value="Submit" class="submit">
+  </div>
 
-<audio id="myAudio">
-  <source src="audio/Company.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+    <audio id="myAudio">
+      <source src="audio/Company.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div id="message">
+      <h1 class="lyrics"></h1>
+    </div>
+    <div id="txt"></div>
 
-<div id="message"></div>
-
-<p>Click the buttons to play or pause the audio.</p>
+</div>
 
 
 </body>
