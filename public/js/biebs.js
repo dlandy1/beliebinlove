@@ -127,7 +127,6 @@ $(document).ready(function() {
 
   $(window).blur(function() {
       // audio.pause();
-      // audio.currentTime = 0
       // messages =[];
   //     $(".container").html("Reload");
     });
