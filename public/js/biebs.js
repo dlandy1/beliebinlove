@@ -99,13 +99,8 @@ $(document).ready(function() {
   }
 
   function play() {
-    if (audio.paused) {
         audio.play();
         nextMsg(0);
-    }else{
-        audio.pause();
-        audio.currentTime = 0
-    }
 }
 
   function nextMsg(i) {
