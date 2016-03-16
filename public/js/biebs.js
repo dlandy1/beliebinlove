@@ -83,7 +83,7 @@ $(document).ready(function() {
     second = $(".dater").val().toString().split(' ').join('-');
     $("input, .submit").fadeOut(500);
     document.location.hash = ("1st " + first+" 2nd "+second).split(' ').join('_');
-    messages(first, second)
+    messager(first, second)
     play()
     startTime();
   });
