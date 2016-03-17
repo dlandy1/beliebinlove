@@ -137,6 +137,11 @@ $(document).ready(function() {
     second = second.toString().split('-').join(' ');
     messager(first, second)
     var imageInterval = setInterval(function() {  nextPic(inl); }, 10000);
+
+    if( $(window).width() < 500){
+       $("header").fadeOut(500);
+      }  
+
     if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
       audio.currentTime = 23;  
        audio.play();
