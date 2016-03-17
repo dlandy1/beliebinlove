@@ -1,8 +1,6 @@
 
 $(document).ready(function() {
-
-  var audio = new Audio('audio/biebs.mp3');
-  audio.load();
+  var audio;
   var div = $( "div" );
   var title = "";
   var original = window.location.hash.toString();
@@ -91,13 +89,14 @@ $(document).ready(function() {
     messager(first, second)
     var userAgent = window.navigator.userAgent;
 
-    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-      audio.currentTime = 23;  
-       audio.play();
-    }
-    else {
+    // if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+    //   audio.currentTime = 23;  
+    //    audio.play();
+    // }
+    // else {
+    var audio = new Audio('audio/biebs.mp3');
      audio.play();
-    }
+    // }
     nextMsg(0);
     startTime();
   });
