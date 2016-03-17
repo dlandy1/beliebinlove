@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
-  var audio;
+
+  var audio = new Audio('audio/biebs.mp3');
   var div = $( "div" );
   var title = "";
   var original = window.location.hash.toString();
@@ -54,7 +55,7 @@ $(document).ready(function() {
       [ a + " ain't gotta be " + b +"'s lover", 1800],
       [ "For "+ a + " to call " + b + " baby ", 1500],
       [ "Never been around no pressure", 1400],
-      [ "Ain't that serious", 800],
+      [ "Ain't that serious no", 800],
       ["Can "+ a +" and "+ b, 2000],
       [a +" and "+ b, 1500],
       ["Keep each other company", 1250],
@@ -63,6 +64,28 @@ $(document).ready(function() {
       ["Can be", 2000],
       ["Be each other's company", 2000],
       ["Oh company", 2000],
+      ["This has gone on so long", 1500],
+      ["Can't you just keep each other company?", 1500],
+      ["Just let it happen", 1700],
+      [ a + " and " + b, 1700],
+      ["Let Justin's voice persuade you two", 1500],
+      [a + " have you not texted " + b + " yet?", 1000],
+      ["Can "+ a +" and "+ b+ " be! They be!", 1200],
+      ["Be each other's company!", 4000],
+      ["Be each other's company!", 2000],
+      ["Ohhhhhh", 1300],
+      ["Just Be each other's company!", 2000],
+      ["Ohhhhhh", 1300],
+      ["Be each other's company!", 2000],
+      ["Ohhhhhh Ohhh Ohhh", 2000],
+      ["Can "+ a +" and "+ b, 1500],
+      [a +" and "+ b, 1500],
+      ["Keep each other's company", 2000],
+      ["Ohhhhhh Ohhh", 1500],
+      ["Maybe " + a +" and "+ b, 1000],
+      ["Can be", 2000],
+      ["Be each other's company", 2000],
+      ["Oh company", 2000]
     ];
   }
 
@@ -83,20 +106,19 @@ $(document).ready(function() {
     first = $(".date").val().toString().split(' ').join('-');
     second = $(".dater").val().toString().split(' ').join('-');
     $("input, .submit").fadeOut(500);
-    document.location.hash = ("1st " + first+" 2nd "+second).split(' ').join('_');
+    document.location.hash = ("lover1 " + first+" lover2 "+second).split(' ').join('_');
     first = first.toString().split('-').join(' ');
     second = second.toString().split('-').join(' ');
     messager(first, second)
     var userAgent = window.navigator.userAgent;
 
-    // if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-    //   audio.currentTime = 23;  
-    //    audio.play();
-    // }
-    // else {
-    var audio = new Audio('audio/biebs.mp3');
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      audio.currentTime = 23;  
+       audio.play();
+    }
+    else {
      audio.play();
-    // }
+    }
     nextMsg(0);
     startTime();
   });
@@ -104,7 +126,6 @@ $(document).ready(function() {
   var s = 0;
 
   function startTime() {
-      $("#txt").html(s);
       s = s + 1;
       timer = s;
       setTimeout( startTime, 1000 );
@@ -118,7 +139,7 @@ $(document).ready(function() {
           
     } else {
         // change content of message, fade in, wait, fade out and continue with next message
-        if(i >= 29 && i <= 34 ){
+        if(i >= 29 && i <= 34 || i >= 55 && i <= 60){
           $('#message').addClass('grey');
         }
         else{
