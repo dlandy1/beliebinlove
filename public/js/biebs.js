@@ -72,8 +72,6 @@ $(document).ready(function() {
     first = (original.split('_')[1]).toString().split('-').join(' ');
     second = (original.split('_')[3]).toString().split('-').join(' ');
     messager(first, second)
-    audio.play();
-    nextMsg(0);
     startTime();
   }else{
      $(".video").fadeIn(500);
