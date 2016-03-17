@@ -89,7 +89,15 @@ $(document).ready(function() {
     first = first.toString().split('-').join(' ');
     second = second.toString().split('-').join(' ');
     messager(first, second)
-    audio.play();
+    var userAgent = window.navigator.userAgent;
+
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      audio.currentTime = 23;  
+       audio.play();
+    }
+    else {
+     audio.play();
+    }
     nextMsg(0);
     startTime();
   });
