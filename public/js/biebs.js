@@ -117,21 +117,24 @@ $(document).ready(function() {
   $.cookie('delete', 'false');
   console.log(original.indexOf("#lover1"))
   if(original.indexOf("#lover1") > -1){
-    first = (original.split('_')[1]).toString().split('-').join(' ');
-    second = (original.split('_')[3]).toString().split('-').join(' ');
-    messager(first, second)
-
-    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-      audio.currentTime = 23;  
+    $(".overlay").fadeIn(500);
+    $(".play-button").click(function(){
+       $(".overlay, .play-button").fadeOut(500);
+      first = (original.split('_')[1]).toString().split('-').join(' ');
+      second = (original.split('_')[3]).toString().split('-').join(' ');
+      messager(first, second)
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+        audio.currentTime = 23;  
+         audio.play();
+      }
+      else {
        audio.play();
-    }
-    else {
-     audio.play();
-    }
-    var imageInterval = setInterval(function() {  nextPic(inl); }, 10000);
-    nextMsg(0);
-    imageInterval;
-    startTime();
+      }
+      var imageInterval = setInterval(function() {  nextPic(inl); }, 10000);
+      nextMsg(0);
+      imageInterval;
+      startTime();
+    });
   }else{
      $(".video").fadeIn(500);
   } 
@@ -176,7 +179,10 @@ $(document).ready(function() {
 
     if (!messages[i]) {
       $('#message').addClass("errorly");
-      $('#message').html("<a class='paddinger' href='http://beliebinlove.herokuapp.com/'>Create Another!</a>")
+      $('#message').html("<a class='paddinger' href='http://beliebinlove.com'>Create Another!</a>")
+      if(messages.length <= 1){
+         $("#message").append("<p class='maddinger'> You left the tab. <br> You must reload and stay on the tab for full video<br>Is it too late to say sorry </p>");
+          }
       $('#message').fadeIn(100)
     } else {
         // change content of message, fade in, wait, fade out and continue with next message
@@ -214,7 +220,6 @@ $(document).ready(function() {
         messages =[];
         sources = ["images/glasses.jpg"]
         document.getElementById("biebs2").src=sources[0];
-        $("#message").html("<a class='paddinger' href='http://beliebinlove.herokuapp.com/'>Create Another!</a>You left the tab. <br> You must reload and stay on the tab for full video<br>Is it too late to say sorry ");
-          }
+        }
       });
 });
