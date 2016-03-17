@@ -98,10 +98,16 @@ $(document).ready(function() {
       $("#txt").html(s);
       s = s + 1;
       setTimeout( startTime, 1000 );
+      console.log(audio.currentTime)
   }
 
 
   function nextMsg(i) {
+
+    if(audio.currentTime - 1 < i){
+      audio.currentTime = i
+      audio.play();
+    } 
 
     if (!messages[i]) {
         // once there is no more message, do whatever you want
