@@ -7,14 +7,19 @@ $(document).ready(function() {
   var original = window.location.hash.toString();
   var messages = [];
   var timer = 0;
-  var imageInterval = setInterval(function() {  nextPic(0); }, 10000);
+  var inl = 0;
+  var userAgent = window.navigator.userAgent;
   var sources = ["images/Bieb.jpg",
   "images/efron.jpg",
   "images/love.jpg",
   "images/focused.jpg",
   "images/calvtay.jpg",
   "images/zayn.jpg",
-  "images/biebsselena.jpg"
+  "images/biebsselena.jpg",
+  "images/stewart.jpg",
+  "images/kanye-biggestfan.jpg",
+  "images/lovers.gif",
+  
     ];
 
 
@@ -101,12 +106,21 @@ $(document).ready(function() {
   }
 
   $.cookie('delete', 'false');
-  console.log(original.indexOf("#1st"))
-  if(original.indexOf("#1st") > -1){
+  console.log(original.indexOf("#lover1"))
+  if(original.indexOf("#lover1") > -1){
     first = (original.split('_')[1]).toString().split('-').join(' ');
     second = (original.split('_')[3]).toString().split('-').join(' ');
     messager(first, second)
     audio.play();
+
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      audio.currentTime = 23;  
+       audio.play();
+    }
+    else {
+     audio.play();
+    }
+    var imageInterval = setInterval(function() {  nextPic(inl); }, 10000);
     nextMsg(0);
     imageInterval;
     startTime();
@@ -117,13 +131,12 @@ $(document).ready(function() {
   $(".submit").click(function(){
     first = $(".date").val().toString().split(' ').join('-');
     second = $(".dater").val().toString().split(' ').join('-');
-    $("input, .submit").fadeOut(500);
+    $(".video").fadeOut(500);
     document.location.hash = ("lover1 " + first+" lover2 "+second).split(' ').join('_');
     first = first.toString().split('-').join(' ');
     second = second.toString().split('-').join(' ');
     messager(first, second)
-    var userAgent = window.navigator.userAgent;
-
+    var imageInterval = setInterval(function() {  nextPic(inl); }, 10000);
     if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
       audio.currentTime = 23;  
        audio.play();
@@ -167,14 +180,14 @@ $(document).ready(function() {
     };
 
   function nextPic(i) {
-
+    console.log(sources[i])
     if (!sources[i]) {
         // once there is no more message, do whatever you want
-        clearInterval(helloInterval);      
+        clearInterval(imageInterval);      
               return;
     } else {
         document.getElementById("biebs2").src=sources[i];
-        i = i +1;
+        inl = i +1;
       }
     };
 
