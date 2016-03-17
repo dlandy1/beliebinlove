@@ -6,6 +6,7 @@ $(document).ready(function() {
   var title = "";
   var original = window.location.hash.toString();
   var messages = [];
+  var timer = 0;
   function messager(a, b) {
       messages = [
       ["", 1000],
@@ -97,17 +98,19 @@ $(document).ready(function() {
   function startTime() {
       $("#txt").html(s);
       s = s + 1;
+      timer = s;
       setTimeout( startTime, 1000 );
-      console.log(audio.currentTime)
   }
 
 
   function nextMsg(i) {
 
-    if(audio.currentTime - 1 < i){
-      audio.currentTime = i
-      audio.play();
-    } 
+    console.log(audio.currentTime)
+    console.log(audio.currentTime + 1 < timer)
+      if(audio.currentTime + 1 < timer){
+        audio.currentTime = timer
+        audio.play();
+      } 
 
     if (!messages[i]) {
         // once there is no more message, do whatever you want
