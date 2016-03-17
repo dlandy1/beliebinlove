@@ -24,6 +24,14 @@ div > p {
     margin: 0;
 }
 
+footer > a{
+    font-size: 15px;
+    float: right;
+    padding: 15px;
+}
+footer{
+  text-align: center;
+}
 header > div{
   height: 13vh;
 }
@@ -37,8 +45,29 @@ header > div{
   }
 }
 
+.errorly{
+  display: block;
+    font-size: 22px;
+    color: #B70000;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.submit{
+      width: 215px;
+    font-size: 17px;
+}
+.social{
+  margin-top: 3px;
+}
 @media (max-width: 568px){
   img{
     width: 100%;
+  }
+  footer{
+    display: none;
   }
 }

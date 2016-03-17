@@ -9,7 +9,9 @@ $(document).ready(function() {
   var timer = 0;
   var inl = 0;
   var userAgent = window.navigator.userAgent;
-  var sources = ["images/Bieb.jpg",
+  var sources = [
+  "images/bieb1.jpg",
+  "images/Bieb.jpg",
   "images/efron.jpg",
   "images/love.jpg",
   "images/focused.jpg",
@@ -19,7 +21,14 @@ $(document).ready(function() {
   "images/stewart.jpg",
   "images/kanye-biggestfan.jpg",
   "images/lovers.gif",
-  
+  "images/gomez.png",
+  "images/kanye.jpg",
+  "images/bill.jpg",
+  "images/jfk.jpg",
+  "images/kimk.jpg",
+  "images/jay-and-bey.jpg",
+  "images/miley.jpeg",
+  "images/glasses.jpg",
     ];
 
 
@@ -111,7 +120,6 @@ $(document).ready(function() {
     first = (original.split('_')[1]).toString().split('-').join(' ');
     second = (original.split('_')[3]).toString().split('-').join(' ');
     messager(first, second)
-    audio.play();
 
     if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
       audio.currentTime = 23;  
@@ -168,7 +176,7 @@ $(document).ready(function() {
 
     if (!messages[i]) {
         // once there is no more message, do whatever you want
-          
+      $('#message').fadeIn(100)
     } else {
         // change content of message, fade in, wait, fade out and continue with next message
         if(i >= 29 && i <= 34 || i >= 55 && i <= 60){
@@ -198,9 +206,15 @@ $(document).ready(function() {
 
   $('#message').hide();
 
-  $(window).blur(function() {
-      // audio.pause();
-      // messages =[];
-  //     $(".container").html("Reload");
-    });
+
+    $(window).blur(function() {
+      if(!audio.paused){ 
+        audio.pause();
+        messages =[];
+        sources = ["images/glasses.jpg"]
+        document.getElementById("biebs2").src=sources[0];
+        $("#message").addClass("errorly");
+        $("#message").html("You left the tab. <br> You must reload and stay on the tab for full video<br>Is it too late to say sorry ");
+          }
+      });
 });
