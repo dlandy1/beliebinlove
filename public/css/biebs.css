@@ -27,3 +27,12 @@ div > p {
 header > div{
   height: 13vh;
 }
+
+@media (max-width: 768px){
+  div > p {
+    font-size: 14px;
+  }
+  div > a {
+    display: none;
+  }
+  }
