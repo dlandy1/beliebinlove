@@ -72,7 +72,8 @@ $(document).ready(function() {
     first = (original.split('_')[1]).toString().split('-').join(' ');
     second = (original.split('_')[3]).toString().split('-').join(' ');
     messager(first, second)
-    play()
+    audio.play();
+    nextMsg(0);
     startTime();
   }else{
      $(".video").fadeIn(500);
@@ -86,7 +87,8 @@ $(document).ready(function() {
     first = first.toString().split('-').join(' ');
     second = second.toString().split('-').join(' ');
     messager(first, second)
-    play()
+    audio.play();
+    nextMsg(0);
     startTime();
   });
 
@@ -98,10 +100,6 @@ $(document).ready(function() {
       setTimeout( startTime, 1000 );
   }
 
-  function play() {
-        audio.play();
-        nextMsg(0);
-}
 
   function nextMsg(i) {
 
@@ -126,7 +124,7 @@ $(document).ready(function() {
   $('#message').hide();
 
   $(window).blur(function() {
-      // audio.pause();
+      audio.pause();
       // messages =[];
   //     $(".container").html("Reload");
     });
