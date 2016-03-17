@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-  var audio = new Audio('audio/Company.mp3');
+  var audio = new Audio('audio/biebs.mp3');
   audio.load();
   var div = $( "div" );
   var title = "";
