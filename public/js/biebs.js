@@ -7,6 +7,17 @@ $(document).ready(function() {
   var original = window.location.hash.toString();
   var messages = [];
   var timer = 0;
+  var imageInterval = setInterval(function() {  nextPic(0); }, 10000);
+  var sources = ["images/Bieb.jpg",
+  "images/efron.jpg",
+  "images/love.jpg",
+  "images/focused.jpg",
+  "images/calvtay.jpg",
+  "images/zayn.jpg",
+  "images/biebsselena.jpg"
+    ];
+
+
   function messager(a, b) {
       messages = [
       ["", 1000],
@@ -97,6 +108,7 @@ $(document).ready(function() {
     messager(first, second)
     audio.play();
     nextMsg(0);
+    imageInterval;
     startTime();
   }else{
      $(".video").fadeIn(500);
@@ -120,6 +132,7 @@ $(document).ready(function() {
      audio.play();
     }
     nextMsg(0);
+    nextPic(0);
     startTime();
   });
 
@@ -128,6 +141,7 @@ $(document).ready(function() {
   function startTime() {
       s = s + 1;
       timer = s;
+      console.log(s);
       setTimeout( startTime, 1000 );
   }
 
@@ -149,6 +163,18 @@ $(document).ready(function() {
                 nextMsg(i + 1);
                 
               })
+      }
+    };
+
+  function nextPic(i) {
+
+    if (!sources[i]) {
+        // once there is no more message, do whatever you want
+        clearInterval(helloInterval);      
+              return;
+    } else {
+        document.getElementById("biebs2").src=sources[i];
+        i = i +1;
       }
     };
 
