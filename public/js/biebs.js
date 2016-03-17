@@ -45,7 +45,7 @@ $(document).ready(function() {
       ["Oh company", 1000],
       ["Set each other's lonely nights", 1250],
       ["Be each other's paradise", 1250],
-      [ a +" needs a picture for a frame", 2500],
+      [ a +" needs a picture for a frame", 2300],
       [ "Someone to share " + b + "'s ring", 1450],
       [ "Tell " + a + " what you wanna drink", 1050],
       [ a  + " will tell you whats on the mind", 1500],
@@ -77,7 +77,7 @@ $(document).ready(function() {
       [ "Forget about the obligations", 1500],
       [ "Maybe they can stay in touch", 1750],
       [ "Oh that ain't doin' too much", 1550],
-      [ a + " ain't gotta be " + b +"'s lover", 1800],
+      [ a + " ain't gotta be " + b +"'s lover", 1500],
       [ "For "+ a + " to call " + b + " baby ", 1500],
       [ "Never been around no pressure", 1400],
       [ "Ain't that serious no", 800],
@@ -175,7 +175,8 @@ $(document).ready(function() {
   function nextMsg(i) {
 
     if (!messages[i]) {
-        // once there is no more message, do whatever you want
+      $('#message').addClass("errorly");
+      $('#message').html("<a class='paddinger' href='http://beliebinlove.herokuapp.com/'>Create Another!</a>")
       $('#message').fadeIn(100)
     } else {
         // change content of message, fade in, wait, fade out and continue with next message
@@ -213,8 +214,7 @@ $(document).ready(function() {
         messages =[];
         sources = ["images/glasses.jpg"]
         document.getElementById("biebs2").src=sources[0];
-        $("#message").addClass("errorly");
-        $("#message").html("You left the tab. <br> You must reload and stay on the tab for full video<br>Is it too late to say sorry ");
+        $("#message").html("<a class='paddinger' href='http://beliebinlove.herokuapp.com/'>Create Another!</a>You left the tab. <br> You must reload and stay on the tab for full video<br>Is it too late to say sorry ");
           }
       });
 });

@@ -63,11 +63,24 @@ footer {
 .social{
   margin-top: 3px;
 }
+.paddinger{
+     padding: 10px;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.maddinger{
+  margin: 25px 0px;
+}
 @media (max-width: 568px){
   img{
     width: 100%;
   }
   footer{
+    display: none;
+  }
+  .social{
     display: none;
   }
 }
