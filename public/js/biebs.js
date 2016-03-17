@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-  var audio = new Audio('audio/Company.mp3');
+  var audio = document.getElementById('myAudio');
   var div = $( "div" );
   var title = "";
   var original = window.location.hash.toString();
@@ -72,6 +72,8 @@ $(document).ready(function() {
     first = (original.split('_')[1]).toString().split('-').join(' ');
     second = (original.split('_')[3]).toString().split('-').join(' ');
     messager(first, second)
+    audio.play();
+    nextMsg(0);
     startTime();
   }else{
      $(".video").fadeIn(500);
@@ -122,7 +124,7 @@ $(document).ready(function() {
   $('#message').hide();
 
   $(window).blur(function() {
-      audio.pause();
+      // audio.pause();
       // messages =[];
   //     $(".container").html("Reload");
     });
