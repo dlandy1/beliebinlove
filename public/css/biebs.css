@@ -35,4 +35,10 @@ header > div{
   div > a {
     display: none;
   }
+}
+
+@media (max-width: 568px){
+  img{
+    width: 100%;
   }
+}
