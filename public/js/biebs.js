@@ -2,6 +2,7 @@
 $(document).ready(function() {
 
   var audio = new Audio('audio/Company.mp3');
+  audio.load();
   var div = $( "div" );
   var title = "";
   var original = window.location.hash.toString();
@@ -104,13 +105,6 @@ $(document).ready(function() {
 
 
   function nextMsg(i) {
-
-    console.log(audio.currentTime)
-    console.log(audio.currentTime + 1 < timer)
-      if(audio.currentTime + 1 < timer){
-        audio.currentTime = timer
-        audio.play();
-      } 
 
     if (!messages[i]) {
         // once there is no more message, do whatever you want
